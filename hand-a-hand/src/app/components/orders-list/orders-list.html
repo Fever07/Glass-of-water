@@ -1,0 +1,6 @@
+<mat-list *ngIf="orders.length > 0">
+    <app-order-card *ngFor="let order of orders;" [order]="order"></app-order-card>
+</mat-list>
+<div *ngIf="orders.length === 0">
+    <div class="empty-text">{{empty}}</div>
+</div>

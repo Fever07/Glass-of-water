@@ -1,0 +1,14 @@
+div, span {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.content-container {
+    height: 100%;
+}
+
+@media only screen and (min-device-width: 600px) {
+    .content-width {
+        width: 70%;
+        margin-left: 15%;
+    }
+}

@@ -1,0 +1,10 @@
+mat-list {
+    padding-top: 0;
+}
+
+.empty-text {
+    margin: auto;
+    font-style: italic;
+    color: gray;
+    width: fit-content;
+}

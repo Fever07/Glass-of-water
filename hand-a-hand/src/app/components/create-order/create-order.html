@@ -1,0 +1,14 @@
+<header>Ask for a help</header>
+<form>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Title" (blur)="changeTitle($event)">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Description" (blur)="changeDescription($event)">
+    </mat-form-field>
+</form>
+<div>
+    <button (click)="submit()" mat-button>
+        Submit
+    </button>
+</div>

@@ -1,0 +1,11 @@
+.space {
+    margin: 6px;
+}
+
+.text {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.datetime {
+    float: right;
+}
