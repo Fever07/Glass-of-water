@@ -22,3 +22,8 @@ mat-form-field {
 button {
     background-color: lightblue;
 }
+
+.login-label {
+    font-size: 20px;
+    margin-bottom: 5px;
+}

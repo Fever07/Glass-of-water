@@ -1,4 +1,7 @@
 import { Component, ElementRef } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { LoginService } from "../../services/login";
+import { Router } from "@angular/router";
 
 @Component({
     templateUrl: 'login.html',
@@ -6,9 +9,20 @@ import { Component, ElementRef } from "@angular/core";
 })
 export class LoginPage {
 
-    constructor(private element: ElementRef) {}
+    constructor(private element: ElementRef, private loginService: LoginService, private router: Router) {}
 
-    submit() {
-
+    submit(loginForm: NgForm) {
+        if (loginForm.valid) {
+            const { username, password } = loginForm.value;
+            this.loginService.authorize(username, password)
+            .then(res => {
+                this.router.navigate(['dashboard']);
+            })
+            .catch(err => {
+                if (err.status === 401) {
+                    alert('UNAUTHORIZED');
+                }
+            });
+        }
     }
 }

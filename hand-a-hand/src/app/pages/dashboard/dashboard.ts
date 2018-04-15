@@ -35,7 +35,7 @@ export class DashboardPage {
 
     loadOrders() {
         this.apiService.getOrders()
-        .subscribe(orders => {
+        .then(orders => {
             this.orders = this.sortOrders(orders);
             this.userOrders = orders.filter(order => order.creator === this.loginService.getUserName());
             this.performOrders = [];
@@ -52,7 +52,7 @@ export class DashboardPage {
         .subscribe(order => {
             console.log(order);
             this.apiService.createOrder(order)
-            .subscribe(res => {
+            .then(res => {
                 console.log(res);
                 this.loadOrders();
             });

@@ -57,6 +57,13 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.post('/login', passport.authenticate('local'), (req, res) => {
+    res.json({
+        message: 'authorized',
+        user: req.user
+    });
+});
+
 app.use('/orders', ordersRouter);
 
 app.get('/', (req, res) => {

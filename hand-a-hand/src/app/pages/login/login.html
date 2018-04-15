@@ -1,20 +1,20 @@
 <mat-card>
     <div class="login-page-container">
-        <div class="width-fit">
-            Login
+        <div class="login-label width-fit">
+            Enter your credentials
         </div>
-        <form>
+        <form (ngSubmit)="submit(loginForm)" #loginForm="ngForm">
             <mat-form-field>
-                <input type="text" matInput placeholder="Username">
+                <input type="text" name="username" matInput placeholder="Username" ngModel required>
             </mat-form-field>
             <mat-form-field>
-                <input type="text" matInput placeholder="Password">
+                <input type="text" name="password" matInput placeholder="Password" ngModel required>
             </mat-form-field>
+            <div class="width-fit">
+                <button mat-button>
+                    Log in
+                </button>
+            </div>
         </form>
-        <div class="width-fit">
-            <button (click)="Submit()" mat-button>
-                Submit
-            </button>
-        </div>
     </div>    
 </mat-card>                                                       

@@ -15,6 +15,7 @@ import { Http, HttpModule } from '@angular/http';
 import { LoginService } from './services/login';
 import { CreateOrderDialogComponent } from './components/create-order/create-order';
 import { LoginPage } from './pages/login/login';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginPage } from './pages/login/login';
     AppRouting,
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     ApiService,
