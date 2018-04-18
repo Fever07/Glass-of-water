@@ -11,8 +11,8 @@ import { CreateOrderDialogComponent } from "../../components/create-order/create
 })
 export class DashboardPage {
 
-    orders: Order[];
-    userOrders: Order[];
+    orders: Order[] = [];
+    userOrders: Order[] = [];
     performOrders: Order[] = [];
     isLoading: boolean = false;
 
@@ -49,14 +49,18 @@ export class DashboardPage {
             height: '300px'
         });
         dialogRef.afterClosed()
-        .subscribe(order => {
-            console.log(order);
-            this.apiService.createOrder(order)
-            .then(res => {
-                console.log(res);
-                this.loadOrders();
-            });
+        .subscribe(result => {
+            if (result.submit) {
+                this.apiService.createOrder(result.order)
+                .then(res => {
+                    this.loadOrders();
+                });
+            }
         });
+    }
+
+    onMenuToggle(evt: any) {
+        console.log(evt);
     }
     
 }

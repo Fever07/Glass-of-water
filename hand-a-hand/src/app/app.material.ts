@@ -8,7 +8,8 @@ const modules = [
     mat.MatTabsModule, 
     mat.MatButtonModule,
     mat.MatDialogModule,
-    mat.MatInputModule
+    mat.MatInputModule,
+    mat.MatSidenavModule
 ];
 
 @NgModule({

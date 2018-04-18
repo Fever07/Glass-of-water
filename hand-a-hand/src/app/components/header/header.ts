@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 
 @Component({
     selector: 'app-header',
@@ -6,6 +6,8 @@ import { Component } from "@angular/core";
     styleUrls: ['header.css']
 })
 export class HeaderComponent {
+
+    @Output() onMenuToggle = new EventEmitter<any>();
     imagepath = 'assets/images/glass.jpg';
 
     toggleMenu() {

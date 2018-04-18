@@ -16,6 +16,10 @@ import { LoginService } from './services/login';
 import { CreateOrderDialogComponent } from './components/create-order/create-order';
 import { LoginPage } from './pages/login/login';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './services/auth.guard';
+import { MainPage } from './pages/main/main';
+import { ProfilePage } from './pages/profile/profile';
+import { SideMenuComponent } from './components/side-menu/side-menu';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { FormsModule } from '@angular/forms';
     OrderCardComponent,
     DashboardPage,
     LoginPage,
-    CreateOrderDialogComponent
+    CreateOrderDialogComponent,
+    MainPage,
+    ProfilePage,
+    SideMenuComponent
   ],
   imports: [
     AppMaterialModule,
@@ -38,7 +45,8 @@ import { FormsModule } from '@angular/forms';
   providers: [
     ApiService,
     Constants,
-    LoginService
+    LoginService,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

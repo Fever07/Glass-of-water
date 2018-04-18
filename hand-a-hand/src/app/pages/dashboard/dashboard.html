@@ -1,13 +1,12 @@
-<app-header></app-header>
 <mat-tab-group class="scrollable-content">
-    <mat-tab label="Orders List">
+    <mat-tab label="Orders List" [disabled]="orders.length === 0">
         <app-orders-list *ngIf="!isLoading" [orders]="orders" empty="No people need help"></app-orders-list>
     </mat-tab>
-    <mat-tab label="Your orders">
+    <mat-tab label="Your orders" [disabled]="userOrders.length === 0">
         <app-orders-list *ngIf="!isLoading" [orders]="userOrders" empty="You didnt ask for help "></app-orders-list>
         <button (click)="createOrder()" mat-icon-button>+</button>
     </mat-tab>
-    <mat-tab label="You perform">
+    <mat-tab label="You perform" [disabled]="performOrders.length === 0">
         <app-orders-list *ngIf="!isLoading" [orders]="performOrders" empty="You dont help anyone now"></app-orders-list>
     </mat-tab>
 </mat-tab-group>

@@ -22,9 +22,12 @@ export class CreateOrderDialogComponent {
 
     close() {
         this.dialogRef.close({
-            title: this.title,
-            description: this.description
-        })
+            order: {
+                title: this.title,
+                description: this.description
+            },
+            submit: true
+        });
     }
 
     changeTitle(event: any) {

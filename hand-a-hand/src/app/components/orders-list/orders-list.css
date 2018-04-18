@@ -3,8 +3,10 @@ mat-list {
 }
 
 .empty-text {
+    padding-top: 0;
     margin: auto;
     font-style: italic;
     color: gray;
     width: fit-content;
+    height: 500px;
 }

@@ -1,7 +1,6 @@
 <header>
     <mat-toolbar>
+        <img [src]="imagepath" width="40px" height="36px" (click)="onMenuToggle.emit($event)">
         <span class="header-text">Glass of water</span>
-        <!-- <span class="header-menu-icon icon"></span> -->
-        <img [src]="imagepath" width="40px" height="36px" (click)="toggleMenu()">
     </mat-toolbar>
 </header>

@@ -6,18 +6,8 @@ button[mat-icon-button] {
     background-color: lightblue;
 }
 
-app-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    overflow: hidden;
-    z-index: 1000;
-}
-
 .scrollable-content {
-    position: absolute;
+    position: relative;
     top: 56px;
     left: 0;
     right: 0;

@@ -1,6 +1,7 @@
 .header-text {
     font-family: Roboto,"Helvetica Neue",sans-serif;
     width: 100%;
+    text-align: right;
 }
 
 header mat-toolbar {
