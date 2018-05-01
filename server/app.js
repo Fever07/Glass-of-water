@@ -6,6 +6,7 @@ const cors = require('cors');
 const dbdriver = require('./database/driver');
 
 const ordersRouter = require('./routes/orders/router');
+const usersRouter = require('./routes/users/router');
 
 const app = express();
 const router = express.Router();
@@ -21,12 +22,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(
     function(username, password, done) {
-        console.log('AUTHENTICATION: ' + username + ' --- ' + password);
-        for (let key in users) {
-            const user = users[key];
-            if (user.username === username && user.password === password) {
-                return done(null, user);
-            }
+        console.log('AUTHENTICATION: ' + username + ' - ' + password);
+        const authUser = Object.values(db.users.getUsers())
+        .filter(user => user.username === username && user.password === password)[0];
+        if (authUser) {
+            const retUser = {
+                ...authUser
+            };
+            delete retUser.password;
+            return done(null, retUser);
         }
         return done(null, false)
     }
@@ -38,7 +42,6 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
     done(null, user);
 });
-
 
 const hosts = ['http://localhost:4200', 'http://192.168.100.3:4200']
 const corsOptions = {
@@ -65,6 +68,7 @@ app.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 app.use('/orders', ordersRouter);
+app.use('/users', usersRouter);
 
 app.get('/', (req, res) => {
     res.send("This is an api for the hand-a-hand-application");

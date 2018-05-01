@@ -1,9 +1,11 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="over">
-        <app-side-menu></app-side-menu>
-    </mat-sidenav> -->
+        <app-side-menu [menuItems]="menuItems" (onChooseMenuItem)="chooseMenuItem($event)"></app-side-menu>
+    </mat-sidenav>
     <mat-sidenav-content>
         <app-header (onMenuToggle)="onMenuToggle($event)"></app-header>
-        <router-outlet></router-outlet>
+        <div class="scrollable-content">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

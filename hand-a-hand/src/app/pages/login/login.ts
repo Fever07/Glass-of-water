@@ -16,7 +16,8 @@ export class LoginPage {
             const { username, password } = loginForm.value;
             this.loginService.authorize(username, password)
             .then(res => {
-                this.router.navigate(['dashboard']);
+                console.log(res);
+                this.router.navigate(['main/dashboard']);
             })
             .catch(err => {
                 if (err.status === 401) {

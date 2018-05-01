@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { LoginService } from "../../services/login";
+import { Router } from "@angular/router";
 
 @Component({
     templateUrl: 'profile.html',
@@ -6,4 +8,15 @@ import { Component } from "@angular/core";
 })
 export class ProfilePage {
     
+    private user: any = {};
+
+    constructor(private loginService: LoginService, private router: Router) {
+        this.user = loginService.getUser();
+    }
+
+    exit() {
+        this.loginService.exit();
+        this.router.navigate(['login']);
+    }
+
 }

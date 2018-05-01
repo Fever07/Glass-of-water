@@ -1,6 +1,6 @@
-<mat-tab-group class="scrollable-content">
+<mat-tab-group [dynamicHeight]="true" class="scrollable-content">
     <mat-tab label="Orders List" [disabled]="orders.length === 0">
-        <app-orders-list *ngIf="!isLoading" [orders]="orders" empty="No people need help"></app-orders-list>
+        <app-orders-list *ngIf="!isLoading" [choosable]="true" [orders]="orders" empty="No people need help" (choose)="onChoose($event)"></app-orders-list>
     </mat-tab>
     <mat-tab label="Your orders" [disabled]="userOrders.length === 0">
         <app-orders-list *ngIf="!isLoading" [orders]="userOrders" empty="You didnt ask for help "></app-orders-list>

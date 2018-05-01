@@ -1,4 +1,3 @@
 module.exports = function (req, res) {
-    const newOrder = req.body;
-    res.json(global.db.addOrder(newOrder));
+    res.json(db.orders.addOrder(req.body));
 }

@@ -1,5 +1,11 @@
 <mat-list *ngIf="orders.length >= 0">
-    <app-order-card *ngFor="let order of orders;" [order]="order"></app-order-card>
+    <app-order-card 
+    *ngFor="let order of orders; let i = index"
+    [order]="order" 
+    (pick)="onPick($event)" 
+    [expand]="choosable && i === chosenIndex"
+    (choose)="onChoose($event)"
+    buttonText="Perform order"></app-order-card>
 </mat-list>
 <mat-list *ngIf="orders.length === 0">
     <mat-list-item>

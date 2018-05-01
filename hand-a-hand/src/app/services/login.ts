@@ -5,8 +5,7 @@ import { Http } from "@angular/http";
 @Injectable()
 export class LoginService {
 
-    private userId: string;
-    private username: string;
+    private user: any;
     private localStorage: Storage;
 
     constructor(private constants: Constants, private http: Http) {
@@ -15,25 +14,23 @@ export class LoginService {
     }
 
     isAuthorized() {
-        return this.userId && this.userId !== '';
+        return !!this.user;
     }
 
     getUserName() {
-        return this.username;
+        return this.user.username;
+    }
+
+    getUser() {
+        return this.user;
     }
 
     getFromStorage() {
-        const userId = this.localStorage.getItem('userId');
-        const username = this.localStorage.getItem('username');
-        if (userId) {
-            this.userId = userId;
-            this.username = username;
-        }
+        this.user = JSON.parse(this.localStorage.getItem('user'));
     }
 
     setToStorage() {
-        this.localStorage.setItem('userId', this.userId);
-        this.localStorage.setItem('username', this.username);
+        this.localStorage.setItem('user', JSON.stringify(this.user));
     }
 
     authorize(username: string, password: string) {
@@ -44,11 +41,15 @@ export class LoginService {
         .toPromise()
         .then(res => {
             const resp = res.json();
-            this.username = resp.user.username;
-            this.userId = resp.user.id;
+            this.user = resp.user;
             this.setToStorage();
             return resp;
         })
+    }
+
+    exit() {
+        this.user = null;
+        this.localStorage.removeItem('user');
     }
 
 }

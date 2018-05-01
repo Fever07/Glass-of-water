@@ -5,7 +5,7 @@ module.exports = function (req, res) {
     const ordersArr = Object.values(db.orders.getOrders());
     res.json(
         ordersArr
-        .filter(order => order.author.id !== userId)
+        .filter(order => order.author.id === userId)
         .map(order => mapOrder(order))
     );
 }

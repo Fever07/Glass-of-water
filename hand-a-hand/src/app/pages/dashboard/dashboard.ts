@@ -34,11 +34,16 @@ export class DashboardPage {
     }
 
     loadOrders() {
-        this.apiService.getOrders()
-        .then(orders => {
-            this.orders = this.sortOrders(orders);
-            this.userOrders = orders.filter(order => order.creator === this.loginService.getUserName());
-            this.performOrders = [];
+        Promise.all([
+            this.apiService.getOrders(this.loginService.getUser()),
+            this.apiService.getUserOrders(this.loginService.getUser()),
+            this.apiService.getPerformedOrders(this.loginService.getUser())
+        ])
+        .then(arr => {
+            console.log(arr);
+            this.orders = this.sortOrders(arr[0]);
+            this.userOrders = this.sortOrders(arr[1]);
+            this.performOrders = this.sortOrders(arr[2]);
             this.isLoading = false
         });
     }
@@ -49,13 +54,22 @@ export class DashboardPage {
             height: '300px'
         });
         dialogRef.afterClosed()
-        .subscribe(result => {
-            if (result.submit) {
+        .toPromise()
+        .then(result => {
+            if (result && result.submit) {
                 this.apiService.createOrder(result.order)
                 .then(res => {
                     this.loadOrders();
                 });
             }
+        });
+    }
+
+    onChoose(order) {
+        console.log(order);
+        this.apiService.performOrder(order, this.loginService.getUser())
+        .then(res => {
+            this.loadOrders();
         });
     }
 

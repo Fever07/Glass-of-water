@@ -20,6 +20,8 @@ import { AuthGuard } from './services/auth.guard';
 import { MainPage } from './pages/main/main';
 import { ProfilePage } from './pages/profile/profile';
 import { SideMenuComponent } from './components/side-menu/side-menu';
+import { TempPage } from './pages/temp/temp';
+import { RegistrationPage } from './pages/registration/registration';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SideMenuComponent } from './components/side-menu/side-menu';
     CreateOrderDialogComponent,
     MainPage,
     ProfilePage,
-    SideMenuComponent
+    SideMenuComponent,
+    TempPage,
+    RegistrationPage
   ],
   imports: [
     AppMaterialModule,

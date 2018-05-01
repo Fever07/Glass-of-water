@@ -1,0 +1,25 @@
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: inline;
+}
+
+.content-container {
+    vertical-align: top;
+    padding-left: 20px;
+    display: inline-block;
+    width: calc(100% - 125px);
+    min-height: 100px;
+}
+
+.name-age {
+    font-size: 20px;
+    font-style: italic;
+}
+
+button {
+    float: right;
+    background-color: lightgray;
+    margin-top: 20px;
+}

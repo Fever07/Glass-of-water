@@ -1,12 +1,15 @@
-<div class="space">
+<div class="space" (click)="pick.emit(order)">
     <mat-card>
         <mat-card-title>
             <span class="text">{{order.title}}</span>
             <span class="datetime">{{order.createdAt | date: 'hh:mm a'}}</span>
         </mat-card-title>
         <mat-card-content>
-            <span class="text">{{order.creator}}</span>
+            <span class="text">{{order.author.username}}</span>
             <span class="datetime">{{order.createdAt | date: 'MMM d'}}</span>
         </mat-card-content>
+        <div *ngIf="expand">
+            <button mat-button (click)="choose.emit(order)">{{buttonText}}</button>
+        </div>
     </mat-card>
 </div>

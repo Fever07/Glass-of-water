@@ -6,9 +6,3 @@ button[mat-icon-button] {
     background-color: lightblue;
 }
 
-.scrollable-content {
-    position: relative;
-    top: 56px;
-    left: 0;
-    right: 0;
-}

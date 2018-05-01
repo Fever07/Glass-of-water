@@ -9,3 +9,7 @@
 .datetime {
     float: right;
 }
+
+button {
+    background-color: lightgray;
+}

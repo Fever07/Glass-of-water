@@ -1,0 +1,29 @@
+<mat-card>
+    <div class="login-page-container">
+        <div class="login-label width-fit">
+            Registration
+        </div>
+        <form (ngSubmit)="submit(registrationForm)" #registrationForm="ngForm">
+            <mat-form-field>
+                <input type="text" name="rusername" matInput placeholder="Username" ngModel required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="password" name="rpassword" matInput placeholder="Password" ngModel required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="text" name="name" matInput placeholder="Your name and surname" ngModel required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="email" name="email" matInput placeholder="Email" ngModel required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="tel" name="telephone" matInput placeholder="Mob. phone" ngModel required>
+            </mat-form-field>
+            <div class="width-fit">
+                <button mat-button>
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>    
+</mat-card>                                                       

@@ -1,0 +1,12 @@
+<mat-card>
+    <img src="assets/images/dog.jpg">
+    <div class="content-container">
+        <div class="name-age">
+            {{user.name}}, {{user.age}} лет
+        </div>
+        <div>
+            {{user.info}}
+        </div>
+        <button (click)="exit()" mat-button>EXIT</button>
+    </div>
+</mat-card>

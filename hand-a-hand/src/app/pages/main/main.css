@@ -7,3 +7,14 @@ app-header {
     overflow: hidden;
     z-index: 1000;
 }
+
+mat-sidenav-content {
+    height: -webkit-fill-available;
+}
+
+.scrollable-content {
+    position: relative;
+    top: 56px;
+    left: 0;
+    right: 0;
+}

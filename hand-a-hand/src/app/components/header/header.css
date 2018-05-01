@@ -4,8 +4,13 @@
     text-align: right;
 }
 
+img {
+    margin-bottom: 8px;
+    margin-right: 25px;
+}
+
 header mat-toolbar {
-    background-color: lightblue;
+    background-color: rgb(226, 226, 226);
 }
 
 .icon {

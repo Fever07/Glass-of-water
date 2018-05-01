@@ -9,4 +9,6 @@ function uniqueID(){
         '-' + chr4() + chr4() + chr4();
 }
 
-module.exports = uniqueID;
+module.exports = {
+    uniqueID,
+}

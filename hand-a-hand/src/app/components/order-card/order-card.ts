@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
+import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output } from "@angular/core";
 
 @Component({
     selector: 'app-order-card',
@@ -7,4 +7,8 @@ import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 })
 export class OrderCardComponent {
     @Input() order: any;
+    @Input() expand: boolean = false;
+    @Input() buttonText: string;
+    @Output() pick = new EventEmitter<any>();
+    @Output() choose = new EventEmitter<any>();
 }

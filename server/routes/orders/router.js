@@ -5,7 +5,7 @@ const listRoute = require('./list');
 const createRoute = require('./create');
 const removeRoute = require('./remove');
 
-const passport = require('passport')
+const passport = require('passport');
 
 router.get('/list', passport.authenticate('local'), listRoute);
 router.post('/create', createRoute);
